@@ -1,4 +1,4 @@
- INSERT INTO task(name, description, end_time, done, category)
+INSERT INTO task(name, description, end_time, done, category)
 VALUES
 ('Ugotować obiad', 'ma być smaczny', '2019-08-01', 'NIEZROBIONE', 'DOM' ),
 ('Iść do pracy', 'trzeba', '2019-08-01', 'NIEZROBIONE', 'PRACA' ),
