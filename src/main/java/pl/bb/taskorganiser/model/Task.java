@@ -1,4 +1,4 @@
-package pl.bb.taskorganiser.model;
+ package pl.bb.taskorganiser.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.bb.taskorganiser.enums.TaskCategory;
