@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania</title>
+    <style type="text/css">
+        span {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<h1>Twoje zadania</h1>
+<ul>
+    <li th:each="task: ${tasks}">
+        <a th:text="${task.name}"></a>
+        . Termin ukończenia:
+        <a th:text="${task.endTime}"></a>
+        . Opis:
+        <a th:text="${task.description}"></a>
+        . Kategoria:
+        <a th:text="${task.category}"></a>
+        . Status zadania:
+        <a th:text="${task.done}"></a>
+
+
+    </li>
+</ul>
+<p>Wybierz status zadania: </p>
+<span th:each="done: ${T(pl.bb.taskorganiser.enums.TaskDone).values()}">
+
+<a th:href="|/?done=${done.name()}|" th:text="${done.name()}"></a>
+
+</span> <br/>
+
+<form th:action="@{/back}" method="post" th:object="${mainBack}">
+    <input type="submit" value="Wszystkie zadania">
+
+</form>
+
+<h3>Dodawanie nowego zadania</h3>
+<form th:action="@{/add}" method="post" th:object="${taskToAdd}">
+
+    <input type="text" th:field="*{name}" placeholder="Nazwa"/> <br/>
+    <input type="date" th:field="*{endTime}" placeholder="Termin"/> <br/>
+    <textarea th:field="*{description}" placeholder="Opis"></textarea> <br/>
+
+    <p>Kategoria</p>
+    <select th:field="*{category}">
+        <option th:each="category: ${T(pl.bb.taskorganiser.enums.TaskCategory).values()}"
+                th:text="${category.name()}"
+                th:value="${category.name()}">
+        </option>
+    </select> <br/>
+    <p>Czy zadanie zostało wykonane?</p>
+    <select th:field="*{done}">
+        <option th:each="done: ${T(pl.bb.taskorganiser.enums.TaskDone).values()}"
+                th:text="${done.name()}"
+                th:value="${done.name()}">
+        </option>
+    </select> <br/>
+
+    <input type="submit" value="Dodaj">
+
+</form>
+
+
+<form th:action="@{/edit}" method="get" th:object="${taskToEdit}">
+    <input type="hidden" th:field="*{id}" placeholder="Numer"/> <br/>
+    <input type="submit" value="Dodaj">
+</form>
+
+
+</body>
+</html>
