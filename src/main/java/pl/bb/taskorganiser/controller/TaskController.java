@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.bb.taskorganiser.enums.TaskDone;
+import pl.bb.taskorganiser.model.TaskDone;
 import pl.bb.taskorganiser.entity.Task;
 
 import javax.persistence.EntityManager;
@@ -57,7 +57,7 @@ public class TaskController {
 
         return "redirect:/";
     }
-
+/*
     @GetMapping("/edit")
     public String taskToEdit(Task task) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -68,5 +68,5 @@ public class TaskController {
         entityManager.getTransaction().commit();
         return "home";
     }
-
+*/
 }

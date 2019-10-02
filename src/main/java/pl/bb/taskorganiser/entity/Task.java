@@ -1,8 +1,8 @@
 package pl.bb.taskorganiser.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import pl.bb.taskorganiser.enums.TaskCategory;
-import pl.bb.taskorganiser.enums.TaskDone;
+import pl.bb.taskorganiser.model.TaskCategory;
+import pl.bb.taskorganiser.model.TaskDone;
 
 import javax.persistence.*;
 import java.time.LocalDate;

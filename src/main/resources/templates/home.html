@@ -27,7 +27,7 @@
     </li>
 </ul>
 <p>Wybierz status zadania: </p>
-<span th:each="done: ${T(pl.bb.taskorganiser.enums.TaskDone).values()}">
+<span th:each="done: ${T(pl.bb.taskorganiser.model.TaskDone).values()}">
 
 <a th:href="|/?done=${done.name()}|" th:text="${done.name()}"></a>
 
@@ -47,14 +47,14 @@
 
     <p>Kategoria</p>
     <select th:field="*{category}">
-        <option th:each="category: ${T(pl.bb.taskorganiser.enums.TaskCategory).values()}"
+        <option th:each="category: ${T(pl.bb.taskorganiser.model.TaskCategory).values()}"
                 th:text="${category.name()}"
                 th:value="${category.name()}">
         </option>
     </select> <br/>
     <p>Czy zadanie zostało wykonane?</p>
     <select th:field="*{done}">
-        <option th:each="done: ${T(pl.bb.taskorganiser.enums.TaskDone).values()}"
+        <option th:each="done: ${T(pl.bb.taskorganiser.model.TaskDone).values()}"
                 th:text="${done.name()}"
                 th:value="${done.name()}">
         </option>
@@ -64,12 +64,12 @@
 
 </form>
 
-
-<form th:action="@{/edit}" method="get" th:object="${taskToEdit}">
-    <input type="hidden" th:field="*{id}" placeholder="Numer"/> <br/>
+<!--
+<form th:action="@{/edit}" method="get" th:object="${'taskToEdit'}">
+    <input type="hidden" th:field="*{'id'}" placeholder="Numer"/> <br/>
     <input type="submit" value="Dodaj">
 </form>
-
+-->
 
 </body>
 </html>
